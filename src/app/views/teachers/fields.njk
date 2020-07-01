@@ -1,0 +1,77 @@
+<div class="item">
+
+    <div>Avatar URL</div>
+      <div>
+        <input 
+          type="url"
+          name="avatar_url"
+          placeholder="http//"
+          value= "{{ teacher.avatar_url }}"  
+        >
+      </div>
+    </div>
+
+    <div class="item">
+      <div>Complet name</div>
+      <div>
+        <input 
+          type="text"
+          name="name"
+          placeholder="Teacher's name" 
+          value= "{{ teacher.name }}" 
+          >
+      </div>
+    </div>
+
+    <div class="item">
+      <div>Date of birth</div>
+      <div>
+        <input 
+          type="date"
+          name="birth"
+          value= "{{ teacher.birth }}"
+        >  
+      </div>
+    </div>
+
+    <div class="item">
+      <div>Educational level</div>
+      <div>
+        <span> 
+            <select name="educationllevel">
+              <option value="Complete high school">Complete high school</option> 
+              <option value="Complete higher education">Complete higher education</option>
+              <option value="Master's">Master's</option>
+              <option value="Doctorate degree">Doctorate degree</option>
+            </select>
+        </span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div>Type of class</div>
+      
+      <div>
+
+        <span> <input type="radio" name="typeofclass" value="Classroom Lesson"> Classroom Lesson </span>
+        <span> <input type="radio" name="typeofclass" value="Distance Class" > Distance Class </span>
+
+      </div>
+
+    </div>
+
+    <div class="item">
+      <div>Accompaniment in class</div>
+      <div>
+        <input 
+          type="text" 
+          name="occupation_areas"
+          placeholder="information of the subjects that the teacher can teach"
+          value= "{{ teacher.occupation_areas }}"
+        >
+      </div>
+    
+
+    <button type="submit">Save</button> 
+
+</div>

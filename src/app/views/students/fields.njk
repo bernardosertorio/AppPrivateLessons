@@ -1,0 +1,106 @@
+<div class="item">
+
+    <div>Avatar URL</div>
+      <div>
+        <input 
+          type="url"
+          name="avatar_url"
+          placeholder="http//"
+          value= "{{ student.avatar_url }}"  
+        >
+      </div>
+    </div>
+
+    <div class="item">
+      <div>Complet name</div>
+      <div>
+        <input 
+          type="text"
+          name="name" 
+          value= "{{ student.name }}" 
+          >
+      </div>
+    </div>
+
+    <div class="item">
+      <div>Date of birth</div>
+      <div>
+        <input 
+          type="date"
+          name="birth"
+          value= "{{ student.birth }}"
+        >  
+      </div>
+    </div>
+
+    <div class="item">
+      <div>E-mail</div>
+      <div>
+        <input 
+          type="email"
+          name="email"
+          value= "{{ student.email }}" 
+          >
+      </div>
+    </div>
+
+    <div class="item">
+    
+      <div>School Year</div>
+      
+      <span>
+
+        <select name="school_year">
+
+          <option value="5º elementary School" {% if student.school_year == "5º elementary School"%}selected{%endif%}>
+            5º elementary School
+          </option>
+
+          <option value="6º elementary School" {% if student.school_year == "6º elementary School"%}selected{% endif %}>
+            6º elementary School
+          </option>
+
+          <option value="7º elementary School" {% if student.school_year == "7º elementary School"%}selected{% endif %}>
+            7º elementary School
+          </option>
+
+          <option value="8º elementary School" {% if student.school_year == "8º elementary School"%}selected{% endif %}>
+            8º elementary School
+          </option>
+
+          <option value="9º elementary School" {% if student.school_year == "9º elementary School"%}selected{% endif %}>
+            9º elementary School
+          </option>
+
+          <option value="1º high school" {% if student.school_year == "1º high school"%}selected{% endif %}>
+            1º high school
+          </option>
+
+          <option value="2º high school" {% if student.school_year == "2º high school"%}selected{% endif %}>
+            2º high school
+          </option>
+
+          <option value="3º high school" {% if student.school_year == "3º high school"%}selected{% endif %}>
+            3º high school
+          </option>
+
+        </select>
+
+      </span>
+      
+    </div>
+
+    <div class="item">
+      <div>Weekly Workload</div>
+      <div>
+        <input 
+          type="number"
+          name="weekly_workload"
+          value= "{{ student.weekly_workload }}" 
+          >
+      </div>
+  
+
+    <button type="submit">Save</button>   
+
+</div>
