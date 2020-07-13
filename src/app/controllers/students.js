@@ -2,7 +2,6 @@ const Student = require("../models/Student")
 const { date, age } = require('../../lib/utils')
 
 
-
 module.exports = {
 
   list(req, res) {
@@ -45,7 +44,7 @@ module.exports = {
 
       if(!student) return res.send("Student not found!")
 
-      student.birth_date = age(student.birth_date)
+      student.birth = age(student.birth)
       student.subjects_taught = student.subjects_taught.split(",")
       student.created_at = date(student.created_at).format
 
@@ -61,7 +60,7 @@ module.exports = {
 
       if(!student) return res.send("Student not found!")
 
-      student.birth_date = date(student.birth_date).iso
+      student.birth = date(student.birth).iso
 
       return res.render("students/show", { student })
 

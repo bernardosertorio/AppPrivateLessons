@@ -4,7 +4,7 @@ const teachers = require('./app/controllers/teachers')
 const students = require('./app/controllers/students')
 
 
-routes.get('/home', function(req, res) {
+routes.get('/', function(req, res) {
   return res.render("teachers/home")
 })
 routes.get("/teachers", teachers.list)

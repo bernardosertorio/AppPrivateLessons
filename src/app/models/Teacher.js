@@ -1,4 +1,4 @@
-const db = require("../../app/config/db")
+const db = require("../../config/db")
 const date = require("../../lib/utils")
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
       INSERT INTO teachers (
         avatar_url,
         name,
-        birth_date,
+        birth,
         education_level,
         class_type,
         subjects_taught,
@@ -31,7 +31,7 @@ module.exports = {
     const values = [
       data.avatar_url,
       data.name,
-      date(data.birth_date).iso,
+      date(data.birth).iso,
       data.education_level,
       data.class_type,
       data.subjects_taught,
@@ -66,16 +66,16 @@ module.exports = {
     UPDATE teachers SET
       avatar_url=($1),
       name=($2),
-      birth_date=($3),
+      birth=($3),
       education_level=($4),
       class_type=($5),
       subjects_taught=($6),
-    WHERE id = $6
+    WHERE id = $7
     `
     const values = [
       data.avatar_url,
       data.name,
-      date(data.birth_date).iso,
+      date(data.birth).iso,
       data.education_level,
       data.class_type,
       data.subjects_taught,

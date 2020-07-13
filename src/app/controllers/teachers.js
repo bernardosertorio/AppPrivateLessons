@@ -1,5 +1,5 @@
 const Teacher = require("../models/Teacher")
-const { age, date } = require("../../lib/utils")
+const { date, age } = require("../../lib/utils")
 
 
 
@@ -45,7 +45,7 @@ module.exports = {
 
       if(!teacher) return res.send("Teacher not found!")
 
-      teacher.birth_date = age(teacher.birth_date)
+      teacher.age = age(teacher.birth)
       teacher.subjects_taught = teacher.subjects_taught.split(",")
       teacher.created_at = date(teacher.created_at).format
 
@@ -61,7 +61,7 @@ module.exports = {
 
       if(!teacher) return res.send("Teacher not found!")
 
-      teacher.birth_date = date(teacher.birth_date).iso
+      teacher.birth = date(teacher.birth).iso
 
       return res.render("teachers/show", { teacher })
 
@@ -80,7 +80,7 @@ module.exports = {
         return res.send('Please, fill all fields!')
       }
 
-      Teacher.update( req.body, function() {
+      Teacher.update(req.body, function() {
 
         return res.redirect(`/teachers/${req.body.id}`)
       })
