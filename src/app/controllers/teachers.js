@@ -1,6 +1,5 @@
 const Teacher = require("../models/Teacher")
-const { date, age } = require("../../lib/utils")
-
+const { age, date }  = require("../../lib/utils")
 
 
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
    })
 
   },
-
+  
   create(req, res) {
 
    return res.render('teachers/create')
@@ -46,7 +45,7 @@ module.exports = {
       if(!teacher) return res.send("Teacher not found!")
 
       teacher.age = age(teacher.birth)
-      teacher.subjects_taught = teacher.subjects_taught.split(",")
+      teacher.occupation_areas = teacher.occupation_areas.split(",")
       teacher.created_at = date(teacher.created_at).format
 
       return res.render("teachers/show", { teacher })

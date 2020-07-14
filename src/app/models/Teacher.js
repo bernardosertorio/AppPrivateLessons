@@ -1,5 +1,5 @@
 const db = require("../../config/db")
-const date = require("../../lib/utils")
+const { date } = require("../../lib/utils")
 
 module.exports = {
 
@@ -21,9 +21,9 @@ module.exports = {
         avatar_url,
         name,
         birth,
-        education_level,
+        educational_level,
         class_type,
-        subjects_taught,
+        occupation_areas,
         created_at
       ) VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING id
@@ -34,7 +34,7 @@ module.exports = {
       date(data.birth).iso,
       data.education_level,
       data.class_type,
-      data.subjects_taught,
+      data.occupation_areas,
       date(Date.now()).iso
     ]
 
@@ -69,7 +69,7 @@ module.exports = {
       birth=($3),
       education_level=($4),
       class_type=($5),
-      subjects_taught=($6),
+      occupation_areas=($6),
     WHERE id = $7
     `
     const values = [
@@ -78,7 +78,7 @@ module.exports = {
       date(data.birth).iso,
       data.education_level,
       data.class_type,
-      data.subjects_taught,
+      data.occupation_areas,
       data.id
     ]
 
