@@ -37,13 +37,47 @@
     <div class="item">
       <div>Educational level</div>
       <div>
-        <span> 
-            <select name="educational_level">
-              <option value="Complete high school">Complete high school</option> 
-              <option value="Complete higher education">Complete higher education</option>
-              <option value="Master's">Master's</option>
-              <option value="Doctorate degree">Doctorate degree</option>
-            </select>
+        <span>
+          <select name="educational_level">
+            <option
+              value="value"
+              disabled="disabled"
+              selected="select"> 
+              select an option 
+            </option>
+
+            <option value="Complete high school" 
+              {% if teacher.educational_level == "Complete high school" %}
+                selected
+              {% endif %}
+              >
+              Complete high school
+            </option>
+
+            <option value="Complete higher education"
+              {% if teacher.educational_level == "Complete higher education" %}
+                selected
+              {% endif %}
+              >
+              Complete higher education
+            </option>
+
+            <option value="Master's"
+              {% if teacher.educational_level == "Master's" %}
+                selected
+              {% endif %}
+              >
+              Master's
+            </option>
+
+            <option value="Doctorate degree"
+              {% if teacher.educational_level == "Doctorate degree" %}
+                selected
+              {% endif %}
+              >
+              Doctorate degree
+            </option>
+          </select>
         </span>
       </div>
     </div> 
@@ -53,8 +87,27 @@
       
       <div>
 
-        <span> <input type="radio" name="typeofclass" value="Classroom Lesson"> Classroom Lesson </span>
-        <span> <input type="radio" name="typeofclass" value="Distance Class" > Distance Class </span>
+        <span> 
+          <input 
+            type="radio" 
+            name="class_type" 
+            value="Classroom Lesson"
+            {% if teacher.class_type == "Classroom Lesson" %}
+             checked
+            {% endif %}
+          > Classroom Lesson
+        </span>
+
+        <span> 
+          <input 
+            type="radio" 
+            name="class_type" 
+            value="Distance Class"
+            {% if teacher.class_type == "Distance Class" %}
+              checked
+            {% endif %}
+          > Distance Class 
+        </span>
 
       </div>
 

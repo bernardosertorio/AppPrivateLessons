@@ -29,14 +29,14 @@ module.exports = {
 
         return res.send('Please, fill all fields!')
       }
-
+    }
+    
       Teacher.create(req.body, function(teacher) {
 
         return res.redirect(`/teachers/${teacher.id}`)
       })
 
-    }
-  },
+    },
 
   show(req, res) {
 
@@ -62,7 +62,7 @@ module.exports = {
 
       teacher.birth = date(teacher.birth).iso
 
-      return res.render("teachers/show", { teacher })
+      return res.render("teachers/edit", { teacher })
 
     })
 
@@ -78,15 +78,15 @@ module.exports = {
 
         return res.send('Please, fill all fields!')
       }
+    
+    }
 
       Teacher.update(req.body, function() {
 
         return res.redirect(`/teachers/${req.body.id}`)
       })
 
-    }
-
-  },
+    },
 
   delete(req, res) {
 

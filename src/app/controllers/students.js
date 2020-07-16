@@ -30,13 +30,14 @@ module.exports = {
         return res.send('Please, fill all fields!')
       }
 
+    }
+
       Student.create(req.body, function(student) {
 
         return res.redirect(`/students/${student.id}`)
       })
 
-    }
-  },
+    },
 
   show(req, res) {
 
@@ -44,9 +45,8 @@ module.exports = {
 
       if(!student) return res.send("Student not found!")
 
-      student.birth = age(student.birth)
-      student.subjects_taught = student.subjects_taught.split(",")
-      student.created_at = date(student.created_at).format
+      student.age = age(student.birth)
+      student.birth = date(student.birth).format
 
       return res.render("students/show", { student })
 
@@ -62,7 +62,7 @@ module.exports = {
 
       student.birth = date(student.birth).iso
 
-      return res.render("students/show", { student })
+      return res.render("students/edit", { student })
 
     })
 
@@ -79,14 +79,14 @@ module.exports = {
         return res.send('Please, fill all fields!')
       }
 
+    }
+
       Student.update( req.body, function() {
 
         return res.redirect(`/students/${req.body.id}`)
       })
 
-    }
-
-  },
+    },
 
   delete(req, res) {
 

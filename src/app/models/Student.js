@@ -1,5 +1,5 @@
 const db = require("../../config/db")
-const date = require("../../lib/utils")
+const { date } = require("../../lib/utils")
 
 module.exports = {
 
@@ -27,7 +27,7 @@ module.exports = {
         birth,
         email,
         school_year,
-        weekly_workload,
+        weekly_workload
       ) VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING id
       `
@@ -66,12 +66,12 @@ module.exports = {
 
     const query = `
     UPDATE students SET
-      avatar_url=($1),
-      name=($2),
-      birth=($3),
-      email=($4),
-      school_year=($5),
-      weekly_workload=($6),
+      avatar_url = ($1),
+      name = ($2),
+      birth = ($3),
+      email = ($4),
+      school_year = ($5),
+      weekly_workload = ($6)
     WHERE id = $7
     `
     const values = [

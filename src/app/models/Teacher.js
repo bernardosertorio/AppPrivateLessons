@@ -32,7 +32,7 @@ module.exports = {
       data.avatar_url,
       data.name,
       date(data.birth).iso,
-      data.education_level,
+      data.educational_level,
       data.class_type,
       data.occupation_areas,
       date(Date.now()).iso
@@ -64,19 +64,19 @@ module.exports = {
 
     const query = `
     UPDATE teachers SET
-      avatar_url=($1),
-      name=($2),
-      birth=($3),
-      education_level=($4),
-      class_type=($5),
-      occupation_areas=($6),
+      avatar_url = ($1),
+      name = ($2),
+      birth = ($3),
+      educational_level = ($4),
+      class_type = ($5),
+      occupation_areas = ($6)
     WHERE id = $7
     `
     const values = [
       data.avatar_url,
       data.name,
       date(data.birth).iso,
-      data.education_level,
+      data.educational_level,
       data.class_type,
       data.occupation_areas,
       data.id
