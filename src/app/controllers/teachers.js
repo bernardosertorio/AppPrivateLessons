@@ -6,10 +6,18 @@ module.exports = {
 
   list(req, res) {
 
-   Teacher.all(function(teachers) {
+    const { filter } = req.query
 
-    return res.render("teachers/list", { teachers })
-   })
+    if ( filter ) {
+      Teacher.findBy(filter, function(teachers) {
+        return res.render("teachers/list", { teachers })
+      })
+    }  else {
+        Teacher.all(function(teachers) {
+
+          return res.render("teachers/list", { teachers })
+        })
+    }
 
   },
   
