@@ -323,7 +323,7 @@ tbody tr td:last-child a {
 
 .table-container .header form input {
   border: 1px solid #eee;
-  padding: 4px 75px;
+  padding: 4px 8px;
   box-sizing: border-box;
 
 }
