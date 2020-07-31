@@ -6,19 +6,24 @@ module.exports = {
 
   list(req, res) {
 
-    const { filter } = req.query
+    const { filter, page, limit } = req.query
 
-    if ( filter ) {
-      Teacher.findBy(filter, function(teachers) {
-        return res.render("teachers/list", { teachers, filter })
-      })
-    }  else {
-        Teacher.all(function(teachers) {
+    page = page || 1
+    limit = limit || 2
+    let offset = limit * (page - 1)
 
-          return res.render("teachers/list", { teachers })
-        })
+    const params = {
+      filter,
+      page,
+      limit,
+      offseat,
+      callback(teachers) {
+
+      }
     }
 
+    Teacher.paginate(params)
+    
   },
   
   create(req, res) {
