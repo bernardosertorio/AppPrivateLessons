@@ -16,7 +16,7 @@ module.exports = {
       filter,
       page,
       limit,
-      offseat,
+      offset,
       callback(teachers) {
 
         const pagination = {

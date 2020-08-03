@@ -148,14 +148,14 @@ module.exports = {
     }
  
     query = `
-    SELECT students.*, ${totalQuery},
+    SELECT students.*, ${totalQuery}
     FROM students
     ${filterQuery}
     LIMIT $1 OFFSET $2
     `
  
     db.query(query, [limit, offset], function(err, results) {
-      if (err) throw 'Database Error!'
+      if (err) throw `Database Error! ${err}` 
  
       callback(results.rows)
     })

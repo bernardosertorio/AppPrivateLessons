@@ -24,7 +24,6 @@ if(!confirmation) {
 
 function paginate(selectedPage, totalPages) {
 
-
     let pages = [],
         oldPage
 
@@ -34,7 +33,7 @@ function paginate(selectedPage, totalPages) {
         const pagesAfterSelectedPage = currentPage <= selectedPage + 2
         const pagesBeforeSelectedPage = currentPage >= selectedPage - 2
 
-    if (firstAndLastPage || pagesAfterSelectedPage && pagesBeforeSelectedPage) {
+    if (firstAndLastPage || pagesBeforeSelectedPage && pagesAfterSelectedPage) {
         if (oldPage && currentPage - oldPage > 2) {
             pages.push("...")
         }
@@ -57,7 +56,7 @@ function createPagination(pagination) {
     const filter = pagination.dataset.filter
     const page = +pagination.dataset.page
     const total = +pagination.dataset.total
-    const pages = pagination(page, total)
+    const pages = paginate(page, total)
 
     let elements = ""
 
@@ -68,6 +67,7 @@ function createPagination(pagination) {
             elements += `<span>${page}</span>`
 
         } else {
+
             if (filter) {
 
                 elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`
