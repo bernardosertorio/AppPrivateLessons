@@ -20,6 +20,8 @@ if(!confirmation) {
 
 // Lógica de paginação
 
+
+
 function paginate(selectedPage, totalPages) {
 
 
@@ -50,34 +52,42 @@ function paginate(selectedPage, totalPages) {
     return pages
 }
 
-const pagination = document.querySelector(".pagination")
-const filter = pagination.dataset.filter
-const page = +pagination.dataset.page
-const total = +pagination.dataset.total
-const pages = pagination(page, total)
+function createPagination(pagination) {
 
-let elements = ""
+    const filter = pagination.dataset.filter
+    const page = +pagination.dataset.page
+    const total = +pagination.dataset.total
+    const pages = pagination(page, total)
 
-for (let page of pages) {
+    let elements = ""
 
-    if (String(page).includes("...")) {
+    for (let page of pages) {
 
-        elements += `<span>${page}</span>`
+        if (String(page).includes("...")) {
 
-    } else {
-        if (filter) {
-
-            elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`
+            elements += `<span>${page}</span>`
 
         } else {
+            if (filter) {
 
-            elements += `<a href="?page=${page}">${page}</a>`
+                elements += `<a href="?page=${page}&filter=${filter}">${page}</a>`
 
+            } else {
+
+                elements += `<a href="?page=${page}">${page}</a>`
+
+            }
         }
-
-    
-
     }
+
+    pagination.innerHTML = elements
+
 }
 
-pagination.innerHTML = elements
+const pagination = document.querySelector(".pagination")
+
+
+if (pagination) {
+    createPagination(pagination)
+}
+
