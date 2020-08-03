@@ -20,11 +20,10 @@ module.exports = {
       callback(teachers) {
 
         const pagination = {
-          filter,
-          total,
+          total: Math.ceil(teachers[0].total / limit),
           page
         }
-        return res.render("teachers/list", { teachers, filter })
+        return res.render("teachers/list", { teachers, pagination, filter })
       }
     }
 
