@@ -6,7 +6,7 @@ module.exports = {
 
   list(req, res) {
 
-    const { filter, page, limit } = req.query
+    let { filter, page, limit } = req.query
 
     page = page || 1
     limit = limit || 2
@@ -19,6 +19,12 @@ module.exports = {
       offseat,
       callback(teachers) {
 
+        const pagination = {
+          filter,
+          total,
+          page
+        }
+        return res.render("teachers/list", { teachers, filter })
       }
     }
 
