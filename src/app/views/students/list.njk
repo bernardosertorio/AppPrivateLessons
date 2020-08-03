@@ -5,9 +5,25 @@
 
   <div class="card table-container">
 
-    <table width="100%">
+    <div class="header">
 
-        <a href="/students/create">Be a New Student</a>
+      <a class="button" href="/students/create">Be a New Student</a>
+
+      <form action="/students" method="GET">
+
+        <input
+          type="text"
+          name="filter"
+          placeholder="Name or Email"
+          value={{filter}}
+        >
+        <button type="submit">Filter</button>
+        
+      </form>
+
+    </div>
+
+    <table width="100%">
 
       <thead>
 
@@ -39,6 +55,13 @@
       </tbody>
 
     </table>
+
+    <div class="pagination"
+      data-page={{pagination.page}}
+      data-total={{pagination.total}}
+      data-filter={{filter}}
+    ></div>
+
 
   </div>
 
