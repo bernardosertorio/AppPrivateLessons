@@ -1,7 +1,7 @@
 
 ## 🔖 About
 
- Project developed within the course ** LaunchBase ** of the programming school RocketSeat. The purpose of the application was to put into practice knowledge acquired in the Admin module.
+ Project developed within the course LaunchBase of the programming school RocketSeat. The purpose of the application was to put into practice knowledge acquired in the Admin module.
 
 ---
 
